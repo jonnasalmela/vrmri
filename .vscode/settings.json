@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "VRMRI.sln"
+    "dotnet.defaultSolution": "VRMRI-9A.sln"
 }

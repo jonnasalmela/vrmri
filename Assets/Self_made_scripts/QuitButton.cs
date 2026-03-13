@@ -6,8 +6,10 @@ public class QuitGameButton : MonoBehaviour
     // This function will be called when the button is clicked
     public void QuitGame()
     {
-        // This will only work in a standalone build, not in the Unity editor
-        #if UNITY_STANDALONE
+        // Works in Unity editor as well!
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
             Application.Quit();
         #endif
     }

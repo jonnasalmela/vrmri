@@ -18,6 +18,14 @@ TagManager:
   - Finger
   - nurse
   - hmd
+  - iPhone
+  - Book
+  - Bracelet
+  - Plushy
+  - Key
+  - Glasses
+  - Horse
+  - Watch
   layers:
   - Default
   - TransparentFX
