@@ -26,6 +26,8 @@ TagManager:
   - Glasses
   - Horse
   - Watch
+  - stickerPass
+  - sticker
   layers:
   - Default
   - TransparentFX
