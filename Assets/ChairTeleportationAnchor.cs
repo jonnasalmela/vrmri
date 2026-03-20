@@ -31,6 +31,7 @@ public class ChairTeleportationAnchor : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         // Load the hallway scene
-        SceneManager.LoadScene("cannulation_room");
+        //SceneManager.LoadScene("cannulation_room");
+        GameObject.FindGameObjectWithTag("stickerPass").SetActive(true);
     }
 }
