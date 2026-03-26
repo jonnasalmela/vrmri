@@ -52,7 +52,14 @@ public class SceneController : MonoBehaviour
         isPlaying = false;
 
         // Load the next scene
-        SceneManager.LoadScene(nextSceneName);
+        if (SceneManager.GetActiveScene().name == "MRI_Room1")
+        {
+            GameObject.FindGameObjectWithTag("passReference").GetComponent<ReferencePass>().GetPass().SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 
     // Check if the audio is still playing

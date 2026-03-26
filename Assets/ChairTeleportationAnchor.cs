@@ -32,6 +32,7 @@ public class ChairTeleportationAnchor : MonoBehaviour
 
         // Load the hallway scene
         //SceneManager.LoadScene("cannulation_room");
-        GameObject.FindGameObjectWithTag("stickerPass").SetActive(true);
+        GameObject.FindGameObjectWithTag("passReference").GetComponent<ReferencePass>().GetPass().SetActive(true);
+
     }
 }

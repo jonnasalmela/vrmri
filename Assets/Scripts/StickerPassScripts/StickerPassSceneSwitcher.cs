@@ -5,32 +5,16 @@ using UnityEditor.SearchService;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Scene = UnityEngine.SceneManagement.Scene;
 
 public class SceneSwitcher : MonoBehaviour
 {
-
+    //the scene to be loaded. Used by buttons on the pass.
     [SerializeField] private SceneAsset NextScene;
-    private Scene CurrentScene;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
+    //switches the scene, as simple as that.
     public void SwitchTheScene()
     {
-        CurrentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(NextScene.name);
     }
 
-    public void ReturnToPreviousScene()
-    {
-
-    }
 }

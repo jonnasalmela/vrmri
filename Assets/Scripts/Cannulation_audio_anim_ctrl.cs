@@ -1,5 +1,6 @@
-using UnityEngine;
+using GLTFast.Schema;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Cannulation_audio_anim_ctrl : MonoBehaviour
@@ -69,7 +70,8 @@ public class Cannulation_audio_anim_ctrl : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         // Load Hallway 2 scene
-        SceneManager.LoadScene("Hallway 2");
+        //SceneManager.LoadScene("Hallway 2");
+        GameObject.FindGameObjectWithTag("passReference").GetComponent<ReferencePass>().GetPass().SetActive(true);
     }
 
     // Get the position of the XR Rig (which should be the same as the headset position)

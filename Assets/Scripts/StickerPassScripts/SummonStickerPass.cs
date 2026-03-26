@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class SummonStickerPass : MonoBehaviour
 {
-
-    public InputActionReference buttonPressed;
     private Transform mainCamera;
     public Vector3 offset = new Vector3(0, 0, 1f);
     public float positionSmoothTime = 0.15f;
@@ -21,21 +19,16 @@ public class SummonStickerPass : MonoBehaviour
         {
             mainCamera = Camera.main.transform;
         }
-        buttonPressed.action.Enable();
-        buttonPressed.action.performed += SummonPass;
-        
-    }
-
-    //transports the sticker pass to in front of you
-    public void SummonPass(InputAction.CallbackContext context)
-    {
-        //todo: make the pass visible, as it turns invisible after switching scenes.
-        //transform.position = mainCamera.transform.position + mainCamera.transform.forward * distance;
+        //saves the object to another object before deactivating the pass, so it can be activated in any scene.
+        GameObject.FindGameObjectWithTag("passReference").GetComponent<ReferencePass>().SetPass(gameObject);
+        gameObject.SetActive(false);
+     
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         mainCamera = Camera.main.transform;
+        gameObject.SetActive(false);
     }
 
     public void PlaySound()

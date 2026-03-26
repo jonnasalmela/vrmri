@@ -28,6 +28,7 @@ TagManager:
   - Watch
   - stickerPass
   - sticker
+  - passReference
   layers:
   - Default
   - TransparentFX
