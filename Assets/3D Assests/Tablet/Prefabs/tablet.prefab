@@ -379,7 +379,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 765327788772148205}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: AnswerBegin
         m_Mode: 1
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941bae06461e646489587a4b0ebd7a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beginButton: {fileID: 0}
-  audioSource: {fileID: 0}
-  clickSound: {fileID: 0}
+  beginButton: {fileID: 8223128965302956325}
+  audioSource: {fileID: 3036920375483408210}
+  clickSound: {fileID: 8300000, guid: 509589ea68c396e47aa061f81a13a916, type: 3}
 --- !u!82 &3036920375483408210
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 765327788772148205}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: AnswerBegin
         m_Mode: 1
@@ -1934,7 +1934,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: AnswerBegin
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
