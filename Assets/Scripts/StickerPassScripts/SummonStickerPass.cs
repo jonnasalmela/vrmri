@@ -12,6 +12,7 @@ public class SummonStickerPass : MonoBehaviour
     public float positionSmoothTime = 0.15f;
     public float rotationSmoothSpeed = 8f;
     private Vector3 velocity;
+    private bool firsttime = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,43 @@ public class SummonStickerPass : MonoBehaviour
     {
         mainCamera = Camera.main.transform;
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        //since the pass is initialized in the lobby, it must give the sticker only on the second enable.
+        if (firsttime == true)
+        {
+            Debug.Log("passed");
+            //switch-case, gives the sticker corresponding to the active scene.
+            switch (scene)
+            {
+                case "Hallway":
+                    gameObject.GetComponent<StickerGiver>().GiveSticker("HallwaySticker"); break;
+                case "cannulation_room":
+                    gameObject.GetComponent<StickerGiver>().GiveSticker("CannulationSticker"); break;
+                case "MRI_Room3":
+                    gameObject.GetComponent<StickerGiver>().GiveSticker("BeforeMRISticker"); break;
+                case "MRI_Room6":
+                    gameObject.GetComponent<StickerGiver>().GiveSticker("AfterMRISticker"); break;
+                case "MRI_Room_Sorting_Game":
+                    gameObject.GetComponent<StickerGiver>().GiveSticker("SortingGameSticker"); break;
+                case "MRI_Room2":
+                    gameObject.GetComponent<StickerGiver>().GiveSticker("QNASticker"); break;
+                case "Quiz":
+                    gameObject.GetComponent<StickerGiver>().GiveSticker("hallwaySticker"); break;
+
+                default:
+                    Debug.Log("Incorrect scene name");
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("not passed");
+            firsttime = true;
+        }
     }
 
     public void PlaySound()

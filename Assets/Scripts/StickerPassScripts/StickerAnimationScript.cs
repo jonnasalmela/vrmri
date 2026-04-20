@@ -26,8 +26,12 @@ public class StickerAnimationScript : MonoBehaviour
 
     IEnumerator PlayAnimationAndParticles()
     {
+        Debug.Log("Playing sticker animation");
+        yield return new WaitForSeconds(2);
         GetSticker();
+        Debug.Log("middle animation");
         yield return new WaitForSeconds(1);
         DoParticles();
+        Debug.Log("End animation");
     }
 }
