@@ -63,7 +63,14 @@ public class SceneController6 : MonoBehaviour
         isPlaying = false;
 
         // Load the next scene
-        SceneManager.LoadScene(nextSceneName);
+        if (SceneManager.GetActiveScene().name == "MRI_Room6")
+        {
+            GameObject.FindGameObjectWithTag("passReference").GetComponent<ReferencePass>().GetPass().SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 
     // Teleport the XR rig origin

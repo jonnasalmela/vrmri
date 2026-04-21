@@ -11,6 +11,7 @@ public class StickerGiver : MonoBehaviour
     [SerializeField] GameObject afterMRISticker;
     [SerializeField] GameObject sortingGameSticker;
     [SerializeField] GameObject QNASticker;
+    [SerializeField] GameObject quizSticker;
     void Start()
     {
         
@@ -21,23 +22,27 @@ public class StickerGiver : MonoBehaviour
     {
         switch (sticker)
         {
-            case "hallwaySticker":
+            case "HallwaySticker":
                 hallwaySticker.SetActive(true); break;
 
-            case "cannulationSticker":
+            case "CannulationSticker":
                 cannulationSticker.SetActive(true); break;
 
-            case "beforeMRISticker":
+            case "BeforeMRISticker":
                 beforeMRISticker.SetActive(true); break;
 
-            case "afterMRISticker":
+            case "AfterMRISticker":
                 afterMRISticker.SetActive(true); break;
 
-            case "sortingGameSticker":
+            case "SortingGameSticker":
                 sortingGameSticker.SetActive(true); break;
 
             case "QNASticker":
                 QNASticker.SetActive(true); break;
+
+            case "QuizSticker":
+                quizSticker.SetActive(true); break;
+
 
             default:
                 Debug.Log("Incorrect string in GiveSticker");
