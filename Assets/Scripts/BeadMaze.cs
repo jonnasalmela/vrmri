@@ -16,6 +16,12 @@ public class BeadMaze : MonoBehaviour
     // jos radan joku box collidereista tˆrm‰‰ yhteen helmen box collidereista, kutsutaan t‰t‰ metodia
     void OnTriggerEnter(Collider other)
     {
+        // jos valo on valmiiksi p‰‰ll‰, poistutaan metodista (t‰ll‰ estet‰‰n valon v‰lkkyminen)
+        if (feedbackLight.enabled == true)
+        {
+            return;
+        }
+
         // valo on nyt p‰‰ll‰
         feedbackLight.enabled = true;
         
@@ -24,6 +30,9 @@ public class BeadMaze : MonoBehaviour
         {
             // kutsutaan LightOffWithDelay-korutiinia
             StartCoroutine(LightOffWithDelay(1f));
+
+            // jotta valo ei v‰lkkyisi, lis‰t‰‰n viive loppuun (voi muuttaa)
+            StartCoroutine(DelayBetweenLights(10f));
         }
     }
 
@@ -38,5 +47,11 @@ public class BeadMaze : MonoBehaviour
 
         // valo on nyt pois p‰‰lt‰
         feedbackLight.enabled = false;
+    }
+
+    IEnumerator DelayBetweenLights(float delay)
+    {
+        // viive valojen v‰lill‰
+        yield return new WaitForSeconds(delay);
     }
 }
