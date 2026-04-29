@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class QuestionManager2 : MonoBehaviour
 {
-    // T‰h‰n linkitet‰‰n inspectorissa kysymysteksti, paluuteksti, yes button ja no button
+    // T‰h‰n linkitet‰‰n inspectorissa kysymysteksti, paluuteksti, yes button, no button ja valo
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private TextMeshProUGUI returnText;
     [SerializeField] private GameObject yesButton;
     [SerializeField] private GameObject noButton;
+    [SerializeField] private Light feedbackLight;
 
     // T‰h‰n linkitet‰‰n inspectorissa audio source ja kolme ‰‰niefekti‰
     [Header("Audio")]
@@ -48,6 +49,9 @@ public class QuestionManager2 : MonoBehaviour
     {
         // piilotetaan paluuteksti alussa
         returnText.enabled = false;
+
+        // sammutetaan valo alussa
+        feedbackLight.enabled = false;
 
         // jos kysymysten m‰‰r‰ on eri kuin vastausten m‰‰r‰, annetaan virheilmoitus
         if (questions.Length != correctAnswers.Length)
@@ -103,7 +107,7 @@ public class QuestionManager2 : MonoBehaviour
         // isCorrect toteutuu, jos pelaajan vastaus on true samaan aikaan kun kysymys on true. (sama myˆs false tapauksessa)
         bool isCorrect = correctAnswers[currentQuestionIndex] == playerAnswer;
 
-        // jos vastaus on oikein, score kasvaa yhdell‰, soitetaan ‰‰niefekti ja piilotetaan buttonit
+        // jos vastaus on oikein, score kasvaa yhdell‰, soitetaan ‰‰niefekti, piilotetaan buttonit ja sytytet‰‰n vihre‰ valo
         if (isCorrect)
         {
             Debug.Log("isCorrect");
@@ -111,14 +115,16 @@ public class QuestionManager2 : MonoBehaviour
             audioSource.PlayOneShot(correctClip);
             yesButton.SetActive(false);
             noButton.SetActive(false);
+            StartCoroutine(LightOffWithDelayGreen(1f));
         }
-        // jos vastaus on v‰‰rin, soitetaan ‰‰niefekti ja piilotetaan buttonit
+        // jos vastaus on v‰‰rin, soitetaan ‰‰niefekti, piilotetaan buttonit ja sytytet‰‰n punainen valo
         else
         {
             Debug.Log("isWrong");
             audioSource.PlayOneShot(wrongClip);
             yesButton.SetActive(false);
             noButton.SetActive(false);
+            StartCoroutine(LightOffWithDelayRed(1f));
         }
 
         // kutsutaan NextQuestionAfterDelay()-korutiinia
@@ -187,5 +193,32 @@ public class QuestionManager2 : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("passReference").GetComponent<ReferencePass>().GetPass().SetActive(true);
         //SceneManager.LoadScene(returnSceneName);
+    }
+
+    IEnumerator LightOffWithDelayGreen(float delay)
+    {
+        // sytytet‰‰n valo
+        feedbackLight.enabled = true;
+
+        // valon v‰ri on nyt vihre‰
+        feedbackLight.color = Color.green;
+
+        // annetun viiveen mittainen viive (viivett‰ voi muuttaa)
+        yield return new WaitForSeconds(delay);
+
+        // sammutetaan valo
+        feedbackLight.enabled = false;
+    }
+
+    IEnumerator LightOffWithDelayRed(float delay)
+    {
+        feedbackLight.enabled = true;
+
+        // ainoastaan t‰m‰ kohta on eri (vihre‰n sijasta punainen v‰riksi)
+        feedbackLight.color = Color.red;
+
+        yield return new WaitForSeconds(delay);
+
+        feedbackLight.enabled = false;
     }
 }

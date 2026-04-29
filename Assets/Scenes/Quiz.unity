@@ -2287,6 +2287,7 @@ MonoBehaviour:
   returnText: {fileID: 1154153158}
   yesButton: {fileID: 488916442}
   noButton: {fileID: 735786127}
+  feedbackLight: {fileID: 852966308}
   audioSource: {fileID: 725031477}
   correctClip: {fileID: 8300000, guid: e0ebb4e5dcde3f6448f67af77a601bcd, type: 3}
   wrongClip: {fileID: 8300000, guid: 88ec903b95b53bd42a0ea6d8c5b65e44, type: 3}
