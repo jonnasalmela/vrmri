@@ -32,6 +32,9 @@ TagManager:
   - FallZone
   - Floor
   - bead
+  - Jalka
+  - Kyynar
+  - Polvi
   layers:
   - Default
   - TransparentFX
