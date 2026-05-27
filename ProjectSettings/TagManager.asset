@@ -35,6 +35,11 @@ TagManager:
   - Jalka
   - Kyynar
   - Polvi
+  - Ala
+  - Keski
+  - Olka
+  - Ranne
+  - Nilkka
   layers:
   - Default
   - TransparentFX
