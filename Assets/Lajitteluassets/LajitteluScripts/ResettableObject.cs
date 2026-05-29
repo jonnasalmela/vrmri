@@ -2,19 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// This script returns objects back to their original position and rotation.
-//
-// Objects stay where the player leaves them.
-// Script allows the game to quickly reset all objects without reloading the whole scene.
-//
-// attach this script to all grabbable objects
-
 public class ResettableObject : MonoBehaviour
 {
-    //stores original starting position and rotation
     private Vector3 startPosition;
     private Quaternion startRotation;
-
 
     private Rigidbody rb;
 
